@@ -107,7 +107,7 @@ nav ul li a:hover {
 }
 
 .contact-section {
-    padding: 120px 20px 80px;
+    padding: 90px 20px 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,7 +121,8 @@ nav ul li a:hover {
 }
 
 .contact-section h2 {
-    font-size: 2.5rem;
+    word-spacing: -0.15em;
+    font-size: 2.4rem;
     margin-bottom: 10px;
     color: #0f172a;
     text-align: center;
@@ -131,7 +132,7 @@ nav ul li a:hover {
     text-align: center;
     color: #64748b;
     font-size: 1.125rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .contact-form {
@@ -170,6 +171,13 @@ nav ul li a:hover {
     border-color: #2563eb;
     background-color: #ffffff;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+#desafio {
+    width: 100%; 
+    padding: 12px; 
+    border: 1px solid #cbd5e1; 
+    border-radius: 5px;
 }
 
 textarea {
@@ -211,11 +219,4 @@ footer p {
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 2.5rem; }
     .contact-form { padding: 20px; }
-}
-
-#desafio {
-    width: 100%; 
-    padding: 12px; 
-    border: 1px solid #cbd5e1; 
-    border-radius: 5px;
 }
