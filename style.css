@@ -5,6 +5,8 @@
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
+
+
 body {
     scroll-behavior: smooth;
     line-height: 1.6;
@@ -12,16 +14,22 @@ body {
     background-color: #f8fafc;
 }
 
+
+
 :focus-visible {
     outline: 2px solid #2563eb;
     outline-offset: 3px;
     border-radius: 4px;
 }
 
+
+
 a {
     text-decoration: none;
     transition: color 0.3s ease;
 }
+
+
 
 nav {
     display: flex;
@@ -34,42 +42,57 @@ nav {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
+
+
 
 nav .logo a {
     font-size: 1.5rem;
-    font-weight: bold;
-    color: #15ff00;
+    font-weight: 800;
+    color: #2563eb;
+    letter-spacing: -0.5px;
 }
+
+
 
 nav ul {
     display: flex;
     list-style: none;
 }
 
+
+
 nav ul li {
     margin-left: 30px;
 }
+
+
 
 nav ul li a {
     color: #475569;
     font-weight: 500;
 }
 
+
+
 nav ul li a:hover {
-    color: #5900ff;
+    color: #2563eb;
 }
+
+
 
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, #30264d 0%, #280a4b 100%);
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 0 20px;
 }
+
+
 
 .hero-content h1 {
     font-size: 3.5rem;
@@ -78,9 +101,13 @@ nav ul li a:hover {
     line-height: 1.2;
 }
 
+
+
 .highlight {
     color: #2563eb;
 }
+
+
 
 .hero-content p {
     font-size: 1.125rem;
@@ -88,6 +115,8 @@ nav ul li a:hover {
     margin: 0 auto 40px;
     color: #64748b;
 }
+
+
 
 .btn-primary {
     background: #2563eb;
@@ -99,14 +128,18 @@ nav ul li a:hover {
     display: inline-block;
 }
 
+
+
 .btn-primary:hover {
     background: #1d4ed8;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
+
+
 .contact-section {
-    padding: 120px 20px 80px;
+    padding: 90px 20px 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,24 +147,33 @@ nav ul li a:hover {
     min-height: 100vh;
 }
 
+
+
 .container {
     max-width: 500px;
     width: 100%;
 }
 
+
+
 .contact-section h2 {
-    font-size: 2.5rem;
+    word-spacing: -0.15em;
+    font-size: 2.4rem;
     margin-bottom: 10px;
     color: #0f172a;
     text-align: center;
 }
 
+
+
 .contact-section p {
     text-align: center;
     color: #64748b;
     font-size: 1.125rem;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
+
+
 
 .contact-form {
     background: #ffffff;
@@ -141,9 +183,13 @@ nav ul li a:hover {
     text-align: left;
 }
 
+
+
 .form-group {
     margin-bottom: 24px;
 }
+
+
 
 .form-group label {
     display: block;
@@ -152,6 +198,8 @@ nav ul li a:hover {
     font-size: 0.9rem;
     color: #475569;
 }
+
+
 
 .form-group input, .form-group textarea {
     width: 100%;
@@ -165,15 +213,30 @@ nav ul li a:hover {
     font-family: inherit;
 }
 
+
+
 .form-group input:focus, .form-group textarea:focus {
     border-color: #2563eb;
     background-color: #ffffff;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
 }
 
+
+
+#desafio {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 5px;
+}
+
+
+
 textarea {
     resize: none;
 }
+
+
 
 .btn-submit {
     width: 100%;
@@ -188,6 +251,8 @@ textarea {
     transition: all 0.3s ease;
 }
 
+
+
 .btn-submit:hover {
     background: #1d4ed8;
     transform: translateY(-2px);
@@ -201,7 +266,15 @@ footer {
     border-top: 1px solid #e2e8f0;
 }
 
-/* Responsividade */
+
+
+footer p {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    font-weight: 400;
+
+}
+
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 2.5rem; }
     .contact-form { padding: 20px; }
