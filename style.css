@@ -195,6 +195,19 @@ textarea {
     box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
 }
 
+footer {
+    text-align: center;
+    padding: 12px 5px;
+    background-color: transparent;
+    border-top: 1px solid #e2e8f0;
+}
+
+footer p {
+    color: #94a3b8;
+    font-size: 0.875rem;
+    font-weight: 400;
+}
+
 @media (max-width: 768px) {
     .hero-content h1 { font-size: 2.5rem; }
     .contact-form { padding: 20px; }
