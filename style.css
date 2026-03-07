@@ -313,7 +313,7 @@ nav {
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 -20px 80px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 -20px 80px #ffffff33;
     border-bottom: 1px solid #1E3A8A;
 }
 
@@ -426,7 +426,7 @@ nav ul li a:hover {
     background: #02265a;
     padding: 40px;
     border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    box-shadow: 0 0px 50px #ffffff33;
     text-align: left;
     border: 1px solid #1E3A8A;
 }
@@ -505,6 +505,14 @@ footer p {
     color: #b6babe;
     font-size: 0.875rem;
     font-weight: 600;
+    color: #f9f1f1; 
+}
+
+.footer-wacg {
+    color: #b6babe;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #f9f1f1; 
 }
 
 @media (max-width: 768px) {
