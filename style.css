@@ -27,7 +27,8 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 10%;
+    padding: 10px 5%;
+    flex-wrap: wrap;
     background: rgba(1, 28, 65, 0.95);
     backdrop-filter: blur(10px);
     position: fixed;
@@ -38,12 +39,47 @@ nav {
     border-bottom: 1px solid #1E3A8A;
 }
 
-nav .logo a {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: #38BDF8;
-    letter-spacing: -0.5px;
+nav .logonexus{
+    height: clamp(50px, 8vw, 90px);
+    width: auto;
 }
+
+.logo a{
+    display: flex; 
+    align-items: center; 
+    gap: 10px;
+}
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.logonexus {
+    height: 90px; 
+    width: auto;
+    transition: transform 1s ease, opacity 0.3s ease;
+}
+
+.logonexus.hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    
+}
+
+.logo-link:hover .normal {
+    opacity: 0;
+}
+
+.logo-link:hover .hover {
+    opacity: 1;
+    transform: scale(1.02);
+}
+
 
 nav ul {
     display: flex;
@@ -75,6 +111,9 @@ nav ul li a:hover {
 }
 
 .lettering-content h1 {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
     font-size: 3.5rem;
     margin-bottom: 20px;
     color: #38BDF8;
@@ -236,7 +275,64 @@ footer p {
     color: #f9f1f1; 
 }
 
-@media (max-width: 768px) {
-    .lettering-content h1 { font-size: 2.5rem; }
-    .contato-box { padding: 20px; }
+@media (max-width: 768px){
+    nav {
+        padding: 10px 20px;
+        justify-content: center;
+        gap: 100px;
+    }
+    nav ul {
+        margin-top: 5px;
+    }
+    nav ul li {
+        margin-left: 10px; 
+        margin-right: 10px;
+    }
+    .logonexus {
+        height: 60px;
+    }
+    .lettering-content h1 {
+        font-size: 2.2rem; 
+        margin-top: 60px;
+    }
+    .lettering-content p {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+    .contato-section h2 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    .contato-box {
+        padding: 25px 20px;
+        margin: 0 10px;
+    }
+    .botao-consultor, .botao-solicitar {
+        width: 100%;
+        text-align: center;
+        padding: 16px;
+    }
+    .lettering-content h1 { 
+        font-size: 2.5rem; 
+    }
+    .contato-box { 
+        padding: 20px; 
+    }
+}
+
+@media (max-width: 400px) {
+    nav {
+        gap: 50px;
+    }
+    nav .logonexus {
+        height: 60px;
+    }
+    
+    nav ul li a {
+        font-size: 0.9rem;
+    }
+
+    .lettering-content h1 {
+        font-size: 1.8rem;
+    }
 }
