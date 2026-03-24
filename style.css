@@ -261,15 +261,7 @@ footer {
     border-top: 1px solid #1E3A8A;
 }
 
-footer p {
-    color: #b6babe;
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #f9f1f1; 
-}
-
-.footer-acessibilidade {
-    color: #b6babe;
+footer p, .footer-acessibilidade {
     font-size: 0.875rem;
     font-weight: 600;
     color: #f9f1f1; 
