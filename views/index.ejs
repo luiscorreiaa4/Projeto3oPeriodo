@@ -8,18 +8,9 @@
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <nav aria-label="Menu Principal">
-        <div class="logo">
-            <a href="/" class="logo-link">
-                <img class="logonexus normal" src="/img/logonexus.png" alt="Logo Nexus">
-                <img class="logonexus hover" src="/img/logonexus-hover.png" alt="" aria-hidden="true">
-            </a>
-        </div>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/contato">Contato</a></li>
-        </ul>
-    </nav>
+    
+    <%- include('partials/nav') %>
+
     <main>
         <section id="home" class="lettering">
             <div class="lettering-content">
@@ -31,10 +22,8 @@
             </div>
         </section>
     </main>
-    <footer>
-        <p class="footer-acessibilidade">
-            Este site foi desenvolvido seguindo as <strong>Diretrizes de Acessibilidade para Conteúdo Web (WCAG) 2.1</strong>.
-        </p>
-    </footer>
+
+    <%- include('partials/footer') %>
+
 </body>
 </html>
