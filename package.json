@@ -1,0 +1,15 @@
+{
+  "name": "projeto3operiodo",
+  "version": "1.0.0",
+  "description": "Integrantes : João Gabriel Bezerra - Luís Correia de Araújo - Alan Wagner",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1"
+  }
+}
