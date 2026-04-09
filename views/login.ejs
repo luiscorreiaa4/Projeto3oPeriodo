@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Nexus Inc.</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <%- include('partials/nav') %>
+
+    <main>
+        <section id="login" class="contato-section" style="min-height: calc(100vh - 80px); justify-content: center;">
+            <div class="container-lettering">
+                <h2>Acesse sua <span class="destaque-contato">Conta</span></h2>
+                <p>Bem-vindo de volta! Insira suas credenciais para acessar o portal.</p>
+                
+                <form class="contato-box" action="/login" method="post">
+                    
+                    <div class="texto-box">
+                        <label for="email">E-mail corporativo</label>
+                        <input type="email" autocomplete="email" id="email" name="email" placeholder="contato@empresa.com" required>
+                    </div>
+
+                    <div class="texto-box">
+                        <label for="senha">Senha</label>
+                        <input type="password" autocomplete="current-password" id="senha" name="senha" placeholder="Senha" required>
+                    </div>
+                    
+                    <button type="submit" class="botao-solicitar">Entrar no Portal</button>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <p style="color: #CBD5E1; font-size: 0.95rem;">
+                            Ainda não tem uma conta? <a href="/cadastro" style="color: #7DD3FC; font-weight: bold; text-decoration: underline;">Cadastre-se aqui</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>

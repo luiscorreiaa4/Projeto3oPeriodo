@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Cliente - Nexus Inc.</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <%- include('partials/nav') %>
+
+    <main>
+        <section id="cadastro" class="contato-section">
+            <div class="container-lettering">
+                
+                <h2>Acesse o Portal de Clientes <span class="destaque-contato">Nexus</span></h2>
+                <p>Cadastre sua empresa para solicitar diagnósticos, gerenciar serviços e acompanhar seus resultados.</p>
+                
+                <form class="contato-box" action="/cadastro" method="post" id="formCadastro">
+                    
+                    <div class="texto-box">
+                        <label for="empresa">Nome da empresa</label>
+                        <input type="text" autocomplete="organization" id="empresa" name="empresa" placeholder="Ex: Alphabet Inc." required>
+                        <span id="erro-empresa" style="display: none; color: #ef4444; font-size: 0.85rem; margin-top: 5px; font-weight: bold;">
+                            Por favor, informe o nome da sua empresa.
+                        </span>
+                    </div>
+                    
+                    <div class="texto-box">
+                        <label for="email">E-mail corporativo</label>
+                        <input type="email" autocomplete="email" id="email" name="email" placeholder="Ex: contato@empresa.com" required>
+                        <span id="erro-email" style="display: none; color: #ef4444; font-size: 0.85rem; margin-top: 5px; font-weight: bold;">
+                            Por favor, insira um e-mail válido (exemplo@dominio.com).
+                        </span>
+                    </div>
+
+                    <div class="texto-box">
+                        <label for="celular">Celular / WhatsApp</label>
+                        <input type="tel" autocomplete="tel" id="celular" name="celular" placeholder="(11) 98765-4321" maxlength="15" required>
+                        <span id="erro-celular" style="display: none; color: #ef4444; font-size: 0.85rem; margin-top: 5px; font-weight: bold;">
+                            Por favor, insira um número de telefone válido (com DDD).
+                        </span>
+                    </div>
+
+                    <div class="texto-box">
+                        <label for="senha">Senha de Acesso</label>
+                        <input type="password" autocomplete="new-password" id="senha" name="senha" 
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+                               placeholder="Crie uma senha forte" required>
+                        <small style="color: #CBD5E1; font-size: 0.8rem; display: block; margin-top: 5px;">Mín. 8 caracteres, 1 maiúscula e 1 número.</small>
+                        <span id="erro-padrao-senha" style="display: none; color: #ef4444; font-size: 0.85rem; margin-top: 5px; font-weight: bold;">
+                            A senha digitada está muito fraca. Siga as regras acima.
+                        </span>
+                    </div>
+
+                    <div class="texto-box">
+                        <label for="confirma_senha">Confirme sua senha</label>
+                        <input type="password" autocomplete="new-password" id="confirma_senha" name="confirma_senha" placeholder="Digite a senha novamente" required>
+                        <span id="erro-confirma-senha" style="display: none; color: #ef4444; font-size: 0.85rem; margin-top: 5px; font-weight: bold;">
+                            As senhas não coincidem.
+                        </span>
+                    </div>
+
+                    <div class="texto-box">
+                        <label for="desafio">Qual seu maior desafio tecnológico atual?</label>
+                        <select id="desafio" name="desafio" required>
+                            <option value="" disabled selected> - Selecione uma opção - </option>
+                            <option value="custos">Reduzir custos operacionais</option>
+                            <option value="automacao">Automatizar processos manuais</option>
+                            <option value="seguranca">Segurança de dados e LGPD</option>
+                            <option value="outro">Outro desafio estratégico</option>
+                        </select>
+                        <span id="erro-desafio" style="display: none; color: #ef4444; font-size: 0.85rem; margin-top: 5px; font-weight: bold;">
+                            Por favor, selecione um desafio da lista.
+                        </span>
+                    </div>
+                    
+                    <button type="submit" class="botao-solicitar">Finalizar Cadastro</button>
+                    
+                    <div style="text-align: center; margin-top: 25px;">
+                        <p style="color: #CBD5E1; font-size: 0.95rem;">
+                            Já possui uma conta? <a href="/login" style="color: #7DD3FC; font-weight: bold; text-decoration: underline;">Faça login aqui</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+    <script>
+        const form = document.getElementById('formCadastro');
+        const empresa = document.getElementById('empresa');
+        const email = document.getElementById('email');
+        const celular = document.getElementById('celular');
+        const senha = document.getElementById('senha');
+        const confirmaSenha = document.getElementById('confirma_senha');
+        const desafio = document.getElementById('desafio');
+        
+        const erroEmpresa = document.getElementById('erro-empresa');
+        const erroEmail = document.getElementById('erro-email');
+        const erroCelular = document.getElementById('erro-celular');
+        const erroPadraoSenha = document.getElementById('erro-padrao-senha');
+        const erroConfirmaSenha = document.getElementById('erro-confirma-senha');
+        const erroDesafio = document.getElementById('erro-desafio');
+
+        // Retira o aviso de erro quando o usuário clica no campo de empresa
+        empresa.addEventListener('focus', function() {
+            empresa.style.borderColor = '#1E3A8A';
+            erroEmpresa.style.display = 'none';
+        });
+
+        // Validação em Tempo Real: E-mail (Ao sair do campo)
+        email.addEventListener('blur', function() {
+            if (email.value !== '' && !email.checkValidity()) {
+                email.style.borderColor = '#ef4444';
+                erroEmail.style.display = 'block';
+            } else {
+                email.style.borderColor = '#1E3A8A';
+                erroEmail.style.display = 'none';
+            }
+        });
+
+        // Validação em Tempo Real: Select (Ao escolher uma opção)
+        desafio.addEventListener('change', function() {
+            if (desafio.value !== '') {
+                desafio.style.borderColor = '#1E3A8A';
+                erroDesafio.style.display = 'none';
+            }
+        });
+
+        // Formatação do Celular
+        celular.addEventListener('blur', function() {
+            let v = celular.value.replace(/\D/g, ''); 
+            if (v.length === 11) {
+                celular.value = `(${v.slice(0,2)}) ${v.slice(2,7)}-${v.slice(7,11)}`;
+                celular.style.borderColor = '#1E3A8A';
+                erroCelular.style.display = 'none';
+            } else if (v.length === 10) {
+                celular.value = `(${v.slice(0,2)}) ${v.slice(2,6)}-${v.slice(6,10)}`;
+                celular.style.borderColor = '#1E3A8A';
+                erroCelular.style.display = 'none';
+            } else if (v.length > 0) {
+                celular.style.borderColor = '#ef4444';
+                erroCelular.style.display = 'block';
+            }
+        });
+
+        // Validação da Força da Senha
+        senha.addEventListener('blur', function() {
+            if (senha.value !== '' && !senha.checkValidity()) {
+                senha.style.borderColor = '#ef4444';
+                erroPadraoSenha.style.display = 'block';
+            } else {
+                senha.style.borderColor = '#1E3A8A';
+                erroPadraoSenha.style.display = 'none';
+            }
+            checarSenhasIguais();
+        });
+
+        // Validação de Senhas Iguais
+        function checarSenhasIguais() {
+            if (confirmaSenha.value !== '') {
+                if (senha.value !== confirmaSenha.value) {
+                    confirmaSenha.style.borderColor = '#ef4444';
+                    erroConfirmaSenha.style.display = 'block';
+                } else {
+                    confirmaSenha.style.borderColor = '#1E3A8A';
+                    erroConfirmaSenha.style.display = 'none';
+                }
+            }
+        }
+        confirmaSenha.addEventListener('input', checarSenhasIguais);
+
+        // Barreira Final de Proteção ao Enviar o Formulário
+        form.addEventListener('submit', function(event) {
+            let temErro = false;
+
+            // Checa Empresa (Se está vazio)
+            if (empresa.value.trim() === '') {
+                empresa.style.borderColor = '#ef4444';
+                erroEmpresa.style.display = 'block';
+                temErro = true;
+            }
+
+            // Checa E-mail
+            if (!email.checkValidity() || email.value === '') {
+                email.style.borderColor = '#ef4444';
+                erroEmail.style.display = 'block';
+                temErro = true;
+            }
+
+            // Checa Celular
+            if (celular.value.replace(/\D/g, '').length < 10) {
+                celular.style.borderColor = '#ef4444';
+                erroCelular.style.display = 'block';
+                temErro = true;
+            }
+
+            // Checa Força da Senha
+            if (!senha.checkValidity() || senha.value === '') {
+                senha.style.borderColor = '#ef4444';
+                erroPadraoSenha.style.display = 'block';
+                temErro = true;
+            }
+
+            // Checa Senhas Iguais
+            if (senha.value !== confirmaSenha.value || confirmaSenha.value === '') {
+                confirmaSenha.style.borderColor = '#ef4444';
+                erroConfirmaSenha.style.display = 'block';
+                temErro = true;
+            }
+
+            // Checa Select do Desafio
+            if (desafio.value === '') {
+                desafio.style.borderColor = '#ef4444';
+                erroDesafio.style.display = 'block';
+                temErro = true;
+            }
+
+            // Se houver qualquer erro, impede o envio silenciosamente
+            if (temErro) {
+                event.preventDefault(); 
+            }
+        });
+    </script>
+</body>
+</html>
