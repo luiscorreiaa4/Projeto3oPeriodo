@@ -1,0 +1,42 @@
+/* =========================================
+   HOME.CSS - Exclusivo para a página inicial
+========================================= */
+
+.lettering {
+    height: 100vh;
+    background: radial-gradient(circle at center, #02265a 0%, #011E48 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.lettering-content h1 {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #38BDF8;
+    line-height: 1.2;
+}
+
+.destaque {
+    color: #F1F5F9;
+}
+
+.lettering-content p {
+    font-size: 1.125rem;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: #CBD5E1;
+}
+
+@media (max-width: 768px){
+    .lettering-content h1 { font-size: 2.5rem; margin-top: 60px; }
+    .lettering-content p { font-size: 1rem; margin-bottom: 30px; }
+}
+@media (max-width: 400px) {
+    .lettering-content h1 { font-size: 1.8rem; }
+}

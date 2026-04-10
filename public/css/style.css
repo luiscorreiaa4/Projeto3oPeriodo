@@ -1,3 +1,7 @@
+/* =========================================
+   GLOBAL.CSS - Reset, Nav, Footer e Forms
+========================================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -23,6 +27,7 @@ a {
     transition: color 0.3s ease;
 }
 
+/* --- NAVEGAÇÃO (NAV) --- */
 nav {
     display: flex;
     justify-content: space-between;
@@ -39,99 +44,29 @@ nav {
     border-bottom: 1px solid #1E3A8A;
 }
 
-nav .logonexus{
-    height: clamp(50px, 8vw, 90px);
-    width: auto;
-}
+nav .logonexus { height: clamp(50px, 8vw, 90px); width: auto; transition: transform 1s ease, opacity 0.3s ease; }
+nav .logo a { display: flex; align-items: center; gap: 10px; }
+nav .logo-link { display: flex; align-items: center; position: relative; }
+nav .logonexus.hover { position: absolute; top: 0; left: 0; opacity: 0; pointer-events: none; }
+nav .logo-link:hover .normal { opacity: 0; }
+nav .logo-link:hover .hover { opacity: 1; transform: scale(1.02); }
 
-nav .logo a{
-    display: flex; 
-    align-items: center; 
-    gap: 10px;
-}
+nav ul { display: flex; list-style: none; }
+nav ul li { margin-left: 30px; }
+nav ul li a { color: #e3ebec; font-weight: 600; font-size: 1.1rem; }
+nav ul li a:hover { color: #7DD3FC; }
 
-nav .logo-link {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-nav .logonexus {
-    height: 90px; 
-    width: auto;
-    transition: transform 1s ease, opacity 0.3s ease;
-}
-
-nav .logonexus.hover {
-    position: absolute;
-    top: 0;
-    left: 0;
-    opacity: 0;
-    pointer-events: none;
-    
-}
-
-nav .logo-link:hover .normal {
-    opacity: 0;
-}
-
-nav .logo-link:hover .hover {
-    opacity: 1;
-    transform: scale(1.02);
-}
-
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 30px;
-}
-
-nav ul li a {
-    color: #e3ebec;
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-nav ul li a:hover {
-    color: #7DD3FC;
-}
-
-.lettering {
-    height: 100vh;
-    background: radial-gradient(circle at center, #02265a 0%, #011E48 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/* --- RODAPÉ (FOOTER) --- */
+footer {
     text-align: center;
-    padding: 0 20px;
+    padding: 30px 5px;
+    background-color: #011E48;
+    border-top: 1px solid #1E3A8A;
 }
+footer p, .footer-acessibilidade { font-size: 0.875rem; font-weight: 600; color: #f9f1f1; }
 
-.lettering-content h1 {
-    width: 100%;
-    max-width: 1200px;
-    padding: 0 20px;
-    font-size: 3.5rem;
-    margin-bottom: 20px;
-    color: #38BDF8;
-    line-height: 1.2;
-}
-
-.destaque {
-    color: #F1F5F9;
-}
-
-.lettering-content p {
-    font-size: 1.125rem;
-    max-width: 600px;
-    margin: 0 auto 40px;
-    color: #CBD5E1;
-}
-
-.botao-consultor {
+/* --- BOTÕES GLOBAIS --- */
+.botao-consultor, .botao-solicitar {
     background: #7DD3FC;
     color: #011E48;
     padding: 14px 32px;
@@ -139,71 +74,21 @@ nav ul li a:hover {
     font-weight: bold;
     transition: all 0.3s ease;
     display: inline-block;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    width: 100%;
 }
-
-.botao-consultor:hover {
+.botao-consultor:hover, .botao-solicitar:hover {
     background: #F1F5F9;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(125, 211, 252, 0.3);
 }
 
-.contato-section {
-    padding: 90px 20px 80px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: #011E48;
-    min-height: 100vh;
-}
-
-.container-lettering {
-    max-width: 500px;
-    width: 100%;
-}
-
-.contato-section h2 {
-    word-spacing: -0.15em;
-    font-size: 2.4rem;
-    margin-top: 23px;
-    color: #F1F5F9;
-    text-align: center;
-    line-height: 50px;
-}
-
-.contato-section span {
-    color: #7DD3FC;
-    font-weight: 900;
-}
-
-.contato-section p {
-    text-align: center;
-    color: #CBD5E1;
-    font-size: 1.125rem;
-    margin-bottom: 20px;
-}
-
-.contato-box {
-    background: #02265a;
-    padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 0px 50px #ffffff33;
-    text-align: left;
-    border: 1px solid #1E3A8A;
-}
-
-.texto-box {
-    margin-bottom: 24px;
-}
-
-.texto-box label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 500;
-    font-size: 0.9rem;
-    color: #F1F5F9;
-}
-
-.texto-box input, .texto-box textarea {
+/* --- FORMULÁRIOS E INPUTS GLOBAIS --- */
+.texto-box { margin-bottom: 24px; text-align: left; }
+.texto-box label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 0.9rem; color: #F1F5F9; }
+.texto-box input, .texto-box textarea, #desafio {
     width: 100%;
     padding: 14px;
     border: 1px solid #1E3A8A;
@@ -215,236 +100,38 @@ nav ul li a:hover {
     font-size: 1rem;
     font-family: inherit;
 }
-
-.texto-box input:focus, .texto-box textarea:focus {
+.texto-box input:focus, .texto-box textarea:focus, #desafio:focus {
     border-color: #7DD3FC;
     background-color: #02265a;
     box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.1);
 }
+textarea { resize: none; }
 
-#desafio {
-    width: 100%; 
-    padding: 12px; 
-    border: 1px solid #1E3A8A; 
-    border-radius: 8px;
-    background-color: #011E48;
-    color: #F1F5F9;
-}
+/* --- UTILITÁRIOS E CORES GLOBAIS --- */
+.destaque-contato { color: #7DD3FC; font-weight: 900; }
+.text-left { text-align: left !important; }
+.mensagem-erro { display: none; color: #ef4444 !important; font-size: 0.85rem; margin-top: 5px; font-weight: bold; text-align: left; }
+.mensagem-erro.ativo { display: block; }
+.input-erro { border-color: #ef4444 !important; }
+.nav-sair { color: #ef4444 !important; }
 
-textarea {
-    resize: none;
-}
-
-.botao-solicitar {
-    width: 100%;
-    padding: 14px;
-    background: #7DD3FC;
-    color: #011E48;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-
-.botao-solicitar:hover {
-    background: #F1F5F9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(125, 211, 252, 0.3);
-}
-
-footer {
-    text-align: center;
-    padding: 30px 5px;
-    background-color: #011E48;
-    border-top: 1px solid #1E3A8A;
-}
-
-footer p, .footer-acessibilidade {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: #f9f1f1; 
-}
-
-@media (max-width: 768px){
-    nav {
-        padding: 10px 20px;
-        justify-content: center;
-        gap: 100px;
-    }
-    nav ul {
-        margin-top: 5px;
-    }
-    nav ul li {
-        margin-left: 10px; 
-        margin-right: 10px;
-    }
-    .logonexus {
-        height: 60px;
-    }
-    .lettering-content h1 {
-        font-size: 2.2rem; 
-        margin-top: 60px;
-    }
-    .lettering-content p {
-        font-size: 1rem;
-        margin-bottom: 30px;
-    }
-    .contato-section h2 {
-        font-size: 1.8rem;
-        line-height: 1.2;
-    }
-    .contato-box {
-        padding: 25px 20px;
-        margin: 0 10px;
-    }
-    .botao-consultor, .botao-solicitar {
-        width: 100%;
-        text-align: center;
-        padding: 16px;
-    }
-    .lettering-content h1 { 
-        font-size: 2.5rem; 
-    }
-    .contato-box { 
-        padding: 20px; 
-    }
-}
-
-@media (max-width: 400px) {
-    nav {
-        gap: 50px;
-    }
-    nav .logonexus {
-        height: 60px;
-    }
-    
-    nav ul li a {
-        font-size: 0.9rem;
-    }
-
-    .lettering-content h1 {
-        font-size: 1.8rem;
-    }
-}
-
-/* --- Utilitários de Validação de Formulário --- */
-
-/* Oculta as mensagens de erro por padrão e define a cor/fonte */
-.mensagem-erro {
-    display: none;
-    color: #ef4444 !important; /* Vermelho erro */
-    font-size: 0.85rem;
-    margin-top: 5px;
-    font-weight: bold;
-}
-
-/* Quando o JS adicionar essa classe, a mensagem aparece */
-.mensagem-erro.ativo {
-    display: block;
-}
-
-/* Quando o JS adicionar essa classe, a borda do input fica vermelha */
-/* O !important garante que sobrescreva a cor azul original do estado :focus */
-.input-erro {
-    border-color: #ef4444 !important; 
-}
-
-/* --- Utilitários de Texto do Formulário --- */
-.dica-senha {
-    color: #CBD5E1;
-    font-size: 0.8rem;
-    display: block;
-    margin-top: 5px;
-}
-
-.box-link-login {
-    text-align: center;
-    margin-top: 25px;
-}
-
-.box-link-login p {
-    color: #CBD5E1;
-    font-size: 0.95rem;
-}
-
-.box-link-login a {
-    color: #7DD3FC;
-    font-weight: bold;
-    text-decoration: underline;
-}
-
-/* --- Utilitários de Layout (Dashboard e Login) --- */
-
-.login-section {
-    min-height: calc(100vh - 80px);
-    justify-content: center;
-}
-
-.dashboard-section {
-    justify-content: flex-start;
-    padding-top: 130px;
-}
-
-.dashboard-container {
-    max-width: 1000px;
-    width: 100%;
-}
-
-.text-left {
-    text-align: left !important;
-}
-
-.dashboard-box {
-    margin-top: 30px;
-}
-
-.dashboard-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    border-bottom: 1px solid #1E3A8A;
-    padding-bottom: 15px;
-}
-
-.dashboard-header h3 {
-    color: #F1F5F9;
-    font-size: 1.2rem;
-}
-
-.status-badge {
-    background-color: rgba(125, 211, 252, 0.1);
-    color: #7DD3FC;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    border: 1px solid #7DD3FC;
-}
-
-.dashboard-text {
-    color: #CBD5E1;
-    font-size: 1rem;
-    text-align: left;
-}
-
-.mt-10 {
-    margin-top: 10px;
-}
-
-/* Link de Sair do Menu */
-.nav-sair {
-    color: #ef4444 !important;
-}
-
-/* --- Correção do Autocomplete dos Navegadores --- */
-input:-webkit-autofill,
-input:-webkit-autofill:hover, 
-input:-webkit-autofill:focus, 
-input:-webkit-autofill:active {
+/* Correção Autocomplete dos Navegadores */
+input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:focus, input:-webkit-autofill:active {
     -webkit-box-shadow: 0 0 0 30px #011E48 inset !important;
     -webkit-text-fill-color: #F1F5F9 !important;
     transition: background-color 5000s ease-in-out 0s;
+}
+
+/* --- RESPONSIVIDADE GLOBAL --- */
+@media (max-width: 768px){
+    nav { padding: 10px 20px; justify-content: center; gap: 100px; }
+    nav ul { margin-top: 5px; }
+    nav ul li { margin-left: 10px; margin-right: 10px; }
+    .logonexus { height: 60px; }
+    .botao-consultor, .botao-solicitar { text-align: center; padding: 16px; }
+}
+@media (max-width: 400px) {
+    nav { gap: 50px; }
+    nav .logonexus { height: 60px; }
+    nav ul li a { font-size: 0.9rem; }
 }

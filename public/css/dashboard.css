@@ -1,0 +1,123 @@
+/* =========================================
+   DASHBOARD.CSS - Exclusivo para Painel Admin e Cliente
+========================================= */
+
+.dashboard-section {
+    padding: 130px 20px 80px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #011E48;
+    min-height: 100vh;
+    justify-content: flex-start;
+}
+
+.dashboard-container {
+    max-width: 1000px; 
+    width: 100%;
+}
+
+/* Tipografia específica da seção Dashboard (sempre à esquerda) */
+.dashboard-section h2 {
+    word-spacing: -0.15em;
+    font-size: 2.4rem;
+    margin-top: 23px;
+    color: #F1F5F9;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.dashboard-section p {
+    color: #CBD5E1;
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.dashboard-box {
+    background: #02265a;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0px 50px #ffffff33;
+    text-align: left;
+    border: 1px solid #1E3A8A;
+    margin-top: 30px;
+}
+
+/* --- Elementos internos do card do Cliente (Meu Painel) --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #1E3A8A;
+    padding-bottom: 15px;
+}
+
+.dashboard-header h3 {
+    color: #F1F5F9;
+    font-size: 1.2rem;
+}
+
+.status-badge {
+    background-color: rgba(125, 211, 252, 0.1);
+    color: #7DD3FC;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 1px solid #7DD3FC;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+/* --- Grade de Cards do Administrador (Admin) --- */
+.grid-clientes {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card-cliente {
+    padding: 25px;
+    border-left: 4px solid #7DD3FC;
+    background: #02265a;
+    border-radius: 16px;
+    box-shadow: 0 0px 20px #ffffff11;
+    border-top: 1px solid #1E3A8A;
+    border-right: 1px solid #1E3A8A;
+    border-bottom: 1px solid #1E3A8A;
+    text-align: left;
+}
+
+.card-cliente h3 {
+    color: #F1F5F9;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.info-linha {
+    color: #CBD5E1;
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.tag-desafio {
+    display: inline-block;
+    background: #1E3A8A;
+    color: #7DD3FC;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* --- Responsividade do Dashboard --- */
+@media (max-width: 768px){
+    .dashboard-box { padding: 25px 20px; }
+    .dashboard-header { flex-direction: column; align-items: flex-start; gap: 10px; }
+}

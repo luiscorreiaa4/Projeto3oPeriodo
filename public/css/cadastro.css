@@ -1,0 +1,74 @@
+/* =========================================
+   Exclusivo para Login e Cadastro
+========================================= */
+
+.contato-section {
+    padding: 120px 20px 80px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #011E48;
+    min-height: 100vh;
+}
+
+.login-section {
+    justify-content: center;
+}
+
+.container-lettering {
+    max-width: 500px; 
+    width: 100%;
+    text-align: center;
+}
+
+.contato-section h2 {
+    word-spacing: -0.15em;
+    font-size: 2.4rem;
+    margin-top: 23px;
+    color: #F1F5F9;
+    line-height: 1.2;
+}
+
+.contato-section p {
+    color: #CBD5E1;
+    font-size: 1.125rem;
+    margin-bottom: 20px;
+}
+
+.contato-box {
+    background: #02265a;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 0px 50px #ffffff33;
+    border: 1px solid #1E3A8A;
+}
+
+.dica-senha {
+    color: #CBD5E1;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+    text-align: left;
+}
+
+.box-link-login {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.box-link-login p {
+    color: #CBD5E1;
+    font-size: 0.95rem;
+    margin-bottom: 0;
+}
+
+.box-link-login a {
+    color: #7DD3FC;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px){
+    .contato-section h2 { font-size: 1.8rem; }
+    .contato-box { padding: 25px 20px; margin: 0 10px; }
+}
