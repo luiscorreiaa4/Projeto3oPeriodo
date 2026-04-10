@@ -329,6 +329,116 @@ footer p, .footer-acessibilidade {
     }
 }
 
+/* --- Utilitários de Validação de Formulário --- */
+
+/* Oculta as mensagens de erro por padrão e define a cor/fonte */
+.mensagem-erro {
+    display: none;
+    color: #ef4444 !important; /* Vermelho erro */
+    font-size: 0.85rem;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Quando o JS adicionar essa classe, a mensagem aparece */
+.mensagem-erro.ativo {
+    display: block;
+}
+
+/* Quando o JS adicionar essa classe, a borda do input fica vermelha */
+/* O !important garante que sobrescreva a cor azul original do estado :focus */
+.input-erro {
+    border-color: #ef4444 !important; 
+}
+
+/* --- Utilitários de Texto do Formulário --- */
+.dica-senha {
+    color: #CBD5E1;
+    font-size: 0.8rem;
+    display: block;
+    margin-top: 5px;
+}
+
+.box-link-login {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.box-link-login p {
+    color: #CBD5E1;
+    font-size: 0.95rem;
+}
+
+.box-link-login a {
+    color: #7DD3FC;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* --- Utilitários de Layout (Dashboard e Login) --- */
+
+.login-section {
+    min-height: calc(100vh - 80px);
+    justify-content: center;
+}
+
+.dashboard-section {
+    justify-content: flex-start;
+    padding-top: 130px;
+}
+
+.dashboard-container {
+    max-width: 1000px;
+    width: 100%;
+}
+
+.text-left {
+    text-align: left !important;
+}
+
+.dashboard-box {
+    margin-top: 30px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #1E3A8A;
+    padding-bottom: 15px;
+}
+
+.dashboard-header h3 {
+    color: #F1F5F9;
+    font-size: 1.2rem;
+}
+
+.status-badge {
+    background-color: rgba(125, 211, 252, 0.1);
+    color: #7DD3FC;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 1px solid #7DD3FC;
+}
+
+.dashboard-text {
+    color: #CBD5E1;
+    font-size: 1rem;
+    text-align: left;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+/* Link de Sair do Menu */
+.nav-sair {
+    color: #ef4444 !important;
+}
+
 /* --- Correção do Autocomplete dos Navegadores --- */
 input:-webkit-autofill,
 input:-webkit-autofill:hover, 

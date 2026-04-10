@@ -24,6 +24,15 @@ app.get('/login', (req, res) => {
     res.render('./login');
 });
 
+app.get('/dashboard', (req, res) => {
+    const usuarioLogado = {
+        empresa: "Alphabet Inc.",
+        desafio: "Automatizar processos manuais.",
+        celular: "(11) 99999-9999"
+    };
+    res.render('./dashboard', { usuarioLogado });
+});
+
 app.listen(PORT, () => {
     console.log(`Servidor rodando em: http://localhost:${PORT}`);
 });

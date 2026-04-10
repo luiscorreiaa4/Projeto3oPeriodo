@@ -6,7 +6,13 @@
         </a>
     </div>
     <ul>
-        <li><a href="/login">Login</a></li>
-        <li><a href="/cadastro">Contato</a></li>
+        <% if (typeof usuarioLogado !== 'undefined' && usuarioLogado) { %>
+            <li><a href="/dashboard">Meu Painel</a></li>
+            <li><a href="/logout" class="nav-sair">Sair</a></li>
+            
+        <% } else { %>
+            <li><a href="/cadastro">Cadastro</a></li>
+            <li><a href="/login">Login</a></li>
+        <% } %>
     </ul>
 </nav>

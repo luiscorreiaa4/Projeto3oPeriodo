@@ -12,7 +12,7 @@
     <%- include('partials/nav') %>
 
     <main>
-        <section id="login" class="contato-section" style="min-height: calc(100vh - 80px); justify-content: center;">
+        <section id="login" class="contato-section login-section">
             <div class="container-lettering">
                 <h2>Acesse sua <span class="destaque-contato">Conta</span></h2>
                 <p>Bem-vindo de volta! Insira suas credenciais para acessar o portal.</p>
@@ -31,10 +31,8 @@
                     
                     <button type="submit" class="botao-solicitar">Entrar no Portal</button>
                     
-                    <div style="text-align: center; margin-top: 25px;">
-                        <p style="color: #CBD5E1; font-size: 0.95rem;">
-                            Ainda não tem uma conta? <a href="/cadastro" style="color: #7DD3FC; font-weight: bold; text-decoration: underline;">Cadastre-se aqui</a>
-                        </p>
+                    <div class="box-link-login">
+                        <p>Ainda não tem uma conta? <a href="/cadastro">Cadastre-se aqui</a></p>
                     </div>
                 </form>
             </div>

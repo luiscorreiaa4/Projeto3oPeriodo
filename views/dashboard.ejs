@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Painel - Nexus Inc.</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <%- include('partials/nav') %>
+
+    <main>
+        <section class="contato-section dashboard-section">
+            <div class="container-lettering dashboard-container">
+                
+                <h2 class="text-left">Bem-vindo(a), <span class="destaque-contato"><%= usuarioLogado.empresa %></span></h2>
+                <p class="text-left">Acompanhe o status dos seus serviços e diagnósticos.</p>
+                
+                <div class="contato-box dashboard-box">
+                    <div class="dashboard-header">
+                        <h3>Status do Diagnóstico</h3>
+                        <span class="status-badge">Em Análise</span>
+                    </div>
+                    
+                    <p class="dashboard-text">
+                        Nossos especialistas estão avaliando seus processos focados em <strong><%= usuarioLogado.desafio %></strong>. 
+                    </p>
+                    <p class="dashboard-text mt-10">
+                        Entraremos em contato através do número <strong><%= usuarioLogado.celular %></strong> em breve para agendar nossa primeira reunião.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <%- include('partials/footer') %>
+
+</body>
+</html>
