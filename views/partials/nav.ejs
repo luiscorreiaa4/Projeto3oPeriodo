@@ -7,7 +7,14 @@
     </div>
     <ul>
         <% if (typeof usuarioLogado !== 'undefined' && usuarioLogado) { %>
-            <li><a href="/dashboard">Meu Painel</a></li>
+            
+            <% if (usuarioLogado.isAdmin) { %>
+                <li><a href="/admin">Painel Administrativo</a></li>
+            
+            <% } else { %>
+                <li><a href="/dashboard">Meu Painel</a></li>
+            <% } %>
+
             <li><a href="/logout" class="nav-sair">Sair</a></li>
             
         <% } else { %>

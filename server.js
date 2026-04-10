@@ -28,9 +28,24 @@ app.get('/dashboard', (req, res) => {
     const usuarioLogado = {
         empresa: "Alphabet Inc.",
         desafio: "Automatizar processos manuais.",
-        celular: "(11) 99999-9999"
+        celular: "(11) 99999-9999",
+        isAdmin: false
     };
     res.render('./dashboard', { usuarioLogado });
+});
+
+app.get('/admin', (req, res) => {
+    
+    const clientesFicticios = [
+        { id: 1, empresa: "Alphabet Inc.", email: "contato@alphabet.com", celular: "(11) 98888-7777", desafio: "Reduzir custos", data: "10/04/2026" },
+        { id: 2, empresa: "TechCorp S.A.", email: "admin@techcorp.br", celular: "(21) 97777-6666", desafio: "Segurança de dados", data: "09/04/2026" },
+        { id: 3, empresa: "Logística Express", email: "ti@logexpress.com", celular: "(31) 96666-5555", desafio: "Automatizar processos", data: "08/04/2026" }
+    ];
+
+    const usuarioLogado = {
+        isAdmin: true
+    };
+    res.render('admin', { clientes: clientesFicticios, usuarioLogado: usuarioLogado });
 });
 
 app.listen(PORT, () => {

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrador - Nexus Inc.</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    
+    <%- include('partials/nav') %>
+
+    <main>
+        <section class="dashboard-section">
+            <div class="container-lettering dashboard-container">
+                
+                <h2 class="text-left">Gestão de <span class="destaque-contato">Leads</span></h2>
+                <p class="text-left">Visualize e gerencie as empresas cadastradas na plataforma.</p>
+                
+                <div class="grid-clientes">
+                    
+                    <% clientes.forEach(function(cliente) { %>
+                        
+                        <div class="card-cliente">
+                            <h3><%= cliente.empresa %></h3>
+                            <div class="info-linha"><strong>E-mail:</strong> <%= cliente.email %></div>
+                            <div class="info-linha"><strong>Celular:</strong> <%= cliente.celular %></div>
+                            <div class="info-linha"><strong>Data:</strong> <%= cliente.data %></div>
+                            
+                            <span class="tag-desafio"><%= cliente.desafio %></span>
+                        </div>
+
+                    <% }); %>
+                    
+                </div>
+                </div>
+        </section>
+    </main>
+
+</body>
+</html>
