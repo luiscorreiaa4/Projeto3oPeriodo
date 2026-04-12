@@ -17,9 +17,9 @@
                 <h2>Acesse sua <span class="destaque-contato">Conta</span></h2>
                 <p>Bem-vindo de volta! Insira suas credenciais para acessar o portal.</p>
                 
-               <% if (typeof mensagem !== 'undefined') { %>
-                    <div class="alerta alerta-sucesso">
-                        <%= mensagem %>
+               <% if (typeof erro !== 'undefined') { %>
+                    <div class="alerta alerta-erro">
+                        <%= erro %>
                     </div>
                 <% } %>
                 <form class="contato-box" action="/login" method="post" novalidate>
