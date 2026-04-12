@@ -19,20 +19,26 @@
                 <h2 class="text-left">Bem-vindo(a), <span class="destaque-contato"><%= usuarioLogado.empresa %></span></h2>
                 <p class="text-left">Acompanhe o status dos seus serviços e diagnósticos.</p>
                 
-                <div class="contato-box dashboard-box">
+                <div class="dashboard-box contato-box">
                     <div class="dashboard-header">
-                        <h3>Status do Diagnóstico</h3>
-                        <span class="status-badge">Em Análise</span>
+                        <h3>Status do Diagnóstico Tecnológico</h3>
+                        <span class="status-badge <%= usuarioLogado.status === 'Respondido' ? 'status-respondido' : 'status-pendente' %>">
+                            <%= usuarioLogado.status === 'Respondido' ? 'Respondido' : 'Em Análise' %>
+                        </span>
                     </div>
-                    
-                    <p class="dashboard-text">
-                        Nossos especialistas estão avaliando seus processos focados em <strong><%= usuarioLogado.desafio %></strong>. 
-                    </p>
-                    <p class="dashboard-text mt-10">
-                        Entraremos em contato através do número <strong><%= usuarioLogado.celular %></strong> em breve para agendar nossa primeira reunião.
-                    </p>
-                </div>
 
+                    <div class="info-linha"><strong>Empresa:</strong> <%= usuarioLogado.empresa %></div>
+                    <div class="info-linha"><strong>Desafio Registrado:</strong> <%= usuarioLogado.desafio %></div>
+
+                    <% if (usuarioLogado.status === 'Respondido') { %>
+                        <div class="resposta-box">
+                            <h4><i class="fas fa-check-circle"></i> Diagnóstico Nexus:</h4>
+                            <p><%= usuarioLogado.resposta_admin %></p>
+                        </div>
+                    <% } else { %>
+                        <p class="mt-10"><em>Nossos consultores estão analisando seu desafio. Você receberá uma notificação assim que o diagnóstico estiver pronto.</em></p>
+                    <% } %>
+                </div>
             </div>
         </section>
     </main>

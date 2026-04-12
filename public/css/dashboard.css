@@ -59,14 +59,63 @@
     font-size: 1.2rem;
 }
 
+/* 1. CLASSE BASE (Apenas o formato, sem cores fixas) */
 .status-badge {
-    background-color: rgba(125, 211, 252, 0.1);
-    color: #7DD3FC;
     padding: 5px 15px;
     border-radius: 20px;
     font-weight: bold;
     font-size: 0.9rem;
-    border: 1px solid #7DD3FC;
+    border: 1px solid transparent; /* Borda transparente para as outras classes preencherem */
+    display: inline-block;
+}
+
+/* 2. CLASSES MODIFICADORAS (Apenas as cores) */
+.status-pendente {
+    background-color: rgba(245, 158, 11, 0.1); /* Laranja suave */
+    color: #F59E0B;
+    border-color: #F59E0B;
+}
+
+.status-respondido {
+    background-color: rgba(34, 197, 94, 0.1); /* Verde suave */
+    color: #22C55E;
+    border-color: #22C55E;
+}
+
+/* Card de Resposta do Consultor que vai aparecer quando estiver verde */
+.resposta-box {
+    margin-top: 20px;
+    padding: 20px;
+    background: rgba(34, 197, 94, 0.05);
+    border-left: 4px solid #22C55E;
+    border-radius: 8px;
+}
+
+/* --- TEXTOS DE STATUS (ADMIN) --- */
+.texto-status-respondido {
+    color: #22C55E;
+    font-weight: bold;
+}
+
+.texto-status-pendente {
+    color: #F59E0B;
+    font-weight: bold;
+}
+
+/* --- BOTÃO CARD ADMIN --- */
+.botao-admin-card {
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 0.9rem;
+    text-align: center;
+    display: block;
+}
+
+.resposta-box h4 {
+    color: #22C55E;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
 .mt-10 {

@@ -14,11 +14,15 @@
 
     <main>
         <section id="login" class="contato-section login-section">
-            <div class="container-lettering">
                 <h2>Acesse sua <span class="destaque-contato">Conta</span></h2>
                 <p>Bem-vindo de volta! Insira suas credenciais para acessar o portal.</p>
                 
-                <form class="contato-box" action="/login" method="post">
+               <% if (typeof mensagem !== 'undefined') { %>
+                    <div class="alerta alerta-sucesso">
+                        <%= mensagem %>
+                    </div>
+                <% } %>
+                <form class="contato-box" action="/login" method="post" novalidate>
                     
                     <div class="texto-box">
                         <label for="email">E-mail corporativo</label>

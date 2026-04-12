@@ -7,16 +7,12 @@
     </div>
     <ul>
         <% if (typeof usuarioLogado !== 'undefined' && usuarioLogado) { %>
-            
-            <% if (usuarioLogado.isAdmin) { %>
+            <% if (usuarioLogado.is_admin) { %>
                 <li><a href="/admin">Painel Administrativo</a></li>
-            
             <% } else { %>
-                <li><a href="/dashboard">Meu Painel</a></li>
+                <li><a href="/perfil">Meu Perfil</a></li> <li><a href="/dashboard">Meu Painel</a></li>
             <% } %>
-
             <li><a href="/logout" class="nav-sair">Sair</a></li>
-            
         <% } else { %>
             <li><a href="/cadastro">Cadastro</a></li>
             <li><a href="/login">Login</a></li>

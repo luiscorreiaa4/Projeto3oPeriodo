@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Responder Lead - Nexus Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <%- include('partials/nav') %>
+    <main class="dashboard-section">
+        <div class="dashboard-container">
+            <h2>Responder <span class="destaque-contato">Lead</span></h2>
+            <p>Cliente: <strong><%= cliente.empresa %></strong></p>
+            <p>Desafio: <em>"<%= cliente.desafio %>"</em></p>
+
+            <form action="/admin/responder/<%= cliente.id %>" method="post" class="dashboard-box">
+                <div class="texto-box">
+                    <label for="resposta">Seu Diagnóstico Profissional</label>
+                    <textarea id="resposta" name="resposta" rows="6" placeholder="Escreva aqui a solução recomendada..." required></textarea>
+                </div>
+                <button type="submit" class="botao-solicitar">Enviar Diagnóstico</button>
+            </form>
+        </div>
+    </main>
+</body>
+</html>
