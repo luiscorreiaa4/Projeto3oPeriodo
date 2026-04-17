@@ -1,7 +1,6 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-// Configura a conexão usando as variáveis do seu .env
 const pool = new Pool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
@@ -10,7 +9,6 @@ const pool = new Pool({
     database: process.env.DB_NAME,
 });
 
-// Exporta o pool para ser usado no server.js
 module.exports = {
     query: (text, params) => pool.query(text, params),
 };

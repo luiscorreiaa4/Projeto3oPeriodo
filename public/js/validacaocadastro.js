@@ -14,10 +14,7 @@ const erroPadraoSenha = document.getElementById('erro-padrao-senha');
 const erroConfirmaSenha = document.getElementById('erro-confirma-senha');
 const erroDesafio = document.getElementById('erro-desafio');
 
-/**
- * FUNÇÃO MESTRE: toggleErro (Arrow Function)
- * Adiciona ou remove as classes de erro
- */
+
 const toggleErro = (inputElement, spanElement, temErro) => {
     if (temErro) {
         inputElement.classList.add('input-erro');
@@ -28,7 +25,6 @@ const toggleErro = (inputElement, spanElement, temErro) => {
     }
 };
 
-// Listeners de Evento (Utilizando Arrow Functions)
 empresa.addEventListener('focus', () => toggleErro(empresa, erroEmpresa, false));
 
 email.addEventListener('blur', () => {
@@ -38,42 +34,48 @@ email.addEventListener('blur', () => {
 
 desafio.addEventListener('change', () => toggleErro(desafio, erroDesafio, desafio.value === ''));
 
-// 1. A MÁSCARA (Acontece enquanto o usuário digita)
-celular.addEventListener('input', (e) => {
-    // Tira tudo que não é número instantaneamente
-    let v = e.target.value.replace(/\D/g, '');
-    
-    // Trava o limite máximo em 11 números (DDD + 9 dígitos)
-    if (v.length > 11) v = v.slice(0, 11);
 
-    // Constrói a máscara pedaço por pedaço
-    if (v.length > 10) {
-        // Formato: (11) 98888-7777
-        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
-    } else if (v.length > 6) {
-        // Formato: (11) 8888-7777
-        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2, 6)}-${v.slice(6)}`;
-    } else if (v.length > 2) {
-        // Formato: (11) 9888
-        e.target.value = `(${v.slice(0, 2)}) ${v.slice(2)}`;
-    } else if (v.length > 0) {
-        // Formato: (1
-        e.target.value = `(${v}`;
-    } else {
-        // Se apagou tudo, limpa o campo para não sobrar um "(" solto
-        e.target.value = '';
+celular.addEventListener('focus', (e) => {
+    if (!e.target.value) {
+        e.target.value = '+55 ';
     }
 });
 
-// 2. A VALIDAÇÃO (Acontece quando ele sai do campo)
+celular.addEventListener('keydown', (e) => {
+    if (e.target.value.length <= 4 && e.keyCode === 8) {
+        e.preventDefault();
+    }
+});
+
+celular.addEventListener('input', (e) => {
+    let rawValue = e.target.value;
+    
+    let v = rawValue.replace(/\D/g, '');
+
+    if (!v.startsWith('55')) {
+        v = '55' + v;
+    }
+
+    v = v.slice(0, 13);
+
+    if (v.length <= 2) {
+        e.target.value = `+${v} `;
+    } else if (v.length <= 4) {
+        e.target.value = `+${v.slice(0, 2)} (${v.slice(2)}`;
+    } else if (v.length <= 9) {
+        e.target.value = `+${v.slice(0, 2)} (${v.slice(2, 4)}) ${v.slice(4)}`;
+    } else {
+        e.target.value = `+${v.slice(0, 2)} (${v.slice(2, 4)}) ${v.slice(4, 9)}-${v.slice(9)}`;
+    }
+});
+
+//VALIDAÇÃO
 celular.addEventListener('blur', () => {
     let v = celular.value.replace(/\D/g, ''); 
     
-    // Dá erro se ele começou a digitar, mas parou na metade (ex: tem menos de 10 números)
     toggleErro(celular, erroCelular, v.length > 0 && v.length < 10);
 });
 
-// Função interna para checar senhas (também como Arrow Function)
 const checarSenhasIguais = () => {
     if (confirmaSenha.value !== '') {
         const saoDiferentes = senha.value !== confirmaSenha.value;
@@ -88,9 +90,8 @@ senha.addEventListener('blur', () => {
 
 confirmaSenha.addEventListener('input', checarSenhasIguais);
 
-// Barreira Final: Submit do Formulário
 form.addEventListener('submit', (event) => {
-    // Validações rápidas
+  
     const checkEmpresa = empresa.value.trim() === '';
     const checkEmail = !email.checkValidity() || email.value === '';
     const checkCelular = celular.value.replace(/\D/g, '').length < 10;
@@ -98,7 +99,6 @@ form.addEventListener('submit', (event) => {
     const checkConfirma = senha.value !== confirmaSenha.value || confirmaSenha.value === '';
     const checkDesafio = desafio.value === '';
 
-    // Aplica o visual de erro
     toggleErro(empresa, erroEmpresa, checkEmpresa);
     toggleErro(email, erroEmail, checkEmail);
     toggleErro(celular, erroCelular, checkCelular);
@@ -106,7 +106,6 @@ form.addEventListener('submit', (event) => {
     toggleErro(confirmaSenha, erroConfirmaSenha, checkConfirma);
     toggleErro(desafio, erroDesafio, checkDesafio);
 
-    // Se houver qualquer erro, impede o envio
     if (checkEmpresa || checkEmail || checkCelular || checkSenha || checkConfirma || checkDesafio) {
         event.preventDefault(); 
     }

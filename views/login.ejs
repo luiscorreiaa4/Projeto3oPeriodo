@@ -17,11 +17,7 @@
                 <h2>Acesse sua <span class="destaque-contato">Conta</span></h2>
                 <p>Bem-vindo de volta! Insira suas credenciais para acessar o portal.</p>
                 
-               <% if (typeof erro !== 'undefined') { %>
-                    <div class="alerta alerta-erro">
-                        <%= erro %>
-                    </div>
-                <% } %>
+               
                 <form class="contato-box" action="/login" method="post" novalidate>
                     
                     <div class="texto-box">
@@ -33,7 +29,13 @@
                         <label for="senha">Senha</label>
                         <input type="password" autocomplete="current-password" id="senha" name="senha" placeholder="Senha" required>
                     </div>
-                    
+
+                    <% if (typeof erro !== 'undefined') { %>
+                        <div class="alerta alerta-erro">
+                            <%= erro %>
+                        </div>
+                    <% } %>  
+
                     <button type="submit" class="botao-solicitar">Entrar no Portal</button>
                     
                     <div class="box-link-login">
