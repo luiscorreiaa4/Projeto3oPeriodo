@@ -21,47 +21,49 @@
                 
                 <form class="contato-box" action="/cadastro" method="post" id="formCadastro" novalidate>
                     
-                    <div class="texto-box">
-                        <label for="empresa">Nome da empresa</label>
-                        <input type="text" autocomplete="organization" id="empresa" name="empresa" placeholder="Ex: Alphabet Inc." required>
-                        <span id="erro-empresa" class="mensagem-erro">Por favor, informe o nome da sua empresa.</span>
-                    </div>
-                    
-                    <div class="texto-box">
-                        <label for="email">E-mail corporativo</label>
-                        <input type="email" autocomplete="email" id="email" name="email" placeholder="Ex: contato@empresa.com" required>
-                        <span id="erro-email" class="mensagem-erro">Por favor, insira um e-mail válido (exemplo@dominio.com).</span>
-                    </div>
+                    <div class="form-grid">
+                        <div class="texto-box">
+                            <label for="empresa">Nome da empresa</label>
+                            <input type="text" autocomplete="organization" id="empresa" name="empresa" placeholder="Ex: Alphabet Inc." required>
+                            <span id="erro-empresa" class="mensagem-erro">Por favor, informe o nome da sua empresa.</span>
+                        </div>
+                        
+                        <div class="texto-box">
+                            <label for="email">E-mail corporativo</label>
+                            <input type="email" autocomplete="email" id="email" name="email" placeholder="Ex: contato@empresa.com" required>
+                            <span id="erro-email" class="mensagem-erro">Por favor, insira um e-mail válido (exemplo@dominio.com).</span>
+                        </div>
 
-                    <div class="texto-box">
-                        <label for="celular">Celular / WhatsApp</label>
-                        <input type="tel" autocomplete="tel" id="celular" name="celular" placeholder="+55 (11) 99999-9999" maxlength="19" required>
-                        <span id="erro-celular" class="mensagem-erro">Por favor, insira um número de telefone válido (com DDD).</span>
-                    </div>
+                        <div class="texto-box">
+                            <label for="celular">Celular / WhatsApp</label>
+                            <input type="tel" autocomplete="tel" id="celular" name="celular" placeholder="+55 (11) 99999-9999" maxlength="19" required>
+                            <span id="erro-celular" class="mensagem-erro">Por favor, insira um número de telefone válido (com DDD).</span>
+                        </div>
 
-                    <div class="texto-box">
-                        <label for="senha">Senha de Acesso</label>
-                        <input type="password" autocomplete="new-password" id="senha" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Crie uma senha forte" required>
-                        <small class="dica-senha">Mín. 8 caracteres, 1 maiúscula e 1 número.</small>
-                        <span id="erro-padrao-senha" class="mensagem-erro">A senha digitada está muito fraca. Siga as regras acima.</span>
-                    </div>
+                        <div class="texto-box">
+                            <label for="desafio">Seu maior desafio atual?</label>
+                            <select id="desafio" name="desafio" required>
+                                <option value="" disabled selected> - Selecione - </option>
+                                <option value="custos">Reduzir custos operacionais</option>
+                                <option value="automacao">Automatizar processos manuais</option>
+                                <option value="seguranca">Segurança de dados e LGPD</option>
+                                <option value="outro">Outro desafio estratégico</option>
+                            </select>
+                            <span id="erro-desafio" class="mensagem-erro">Por favor, selecione um desafio da lista.</span>
+                        </div>
 
-                    <div class="texto-box">
-                        <label for="confirma_senha">Confirme sua senha</label>
-                        <input type="password" autocomplete="new-password" id="confirma_senha" name="confirma_senha" placeholder="Digite a senha novamente" required>
-                        <span id="erro-confirma-senha" class="mensagem-erro">As senhas não coincidem.</span>
-                    </div>
+                        <div class="texto-box">
+                            <label for="senha">Senha de Acesso</label>
+                            <input type="password" autocomplete="new-password" id="senha" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Crie uma senha forte" required>
+                            <small class="dica-senha">Mín. 8 caracteres, 1 maiúscula e 1 número.</small>
+                            <span id="erro-padrao-senha" class="mensagem-erro">A senha digitada está muito fraca. Siga as regras acima.</span>
+                        </div>
 
-                    <div class="texto-box">
-                        <label for="desafio">Qual seu maior desafio tecnológico atual?</label>
-                        <select id="desafio" name="desafio" required>
-                            <option value="" disabled selected> - Selecione uma opção - </option>
-                            <option value="custos">Reduzir custos operacionais</option>
-                            <option value="automacao">Automatizar processos manuais</option>
-                            <option value="seguranca">Segurança de dados e LGPD</option>
-                            <option value="outro">Outro desafio estratégico</option>
-                        </select>
-                        <span id="erro-desafio" class="mensagem-erro">Por favor, selecione um desafio da lista.</span>
+                        <div class="texto-box">
+                            <label for="confirma_senha">Confirme sua senha</label>
+                            <input type="password" autocomplete="new-password" id="confirma_senha" name="confirma_senha" placeholder="Digite a senha novamente" required>
+                            <span id="erro-confirma-senha" class="mensagem-erro">As senhas não coincidem.</span>
+                        </div>
                     </div>
                     
                     <button type="submit" class="botao-solicitar">Finalizar Cadastro</button>

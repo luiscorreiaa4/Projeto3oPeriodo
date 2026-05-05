@@ -12,9 +12,13 @@
         <div class="dashboard-container">
             <h2>Responder <span class="destaque-contato">Lead</span></h2>
             <p>Cliente: <strong><%= cliente.empresa %></strong></p>
-            <p>Desafio: <em>"<%= cliente.desafio %>"</em></p>
 
-            <form action="/admin/responder/<%= cliente.id %>" method="post" class="dashboard-box">
+            <div class="dashboard-box" style="margin-bottom: 20px; padding: 25px;">
+                <div class="info-linha"><strong>Empresa:</strong> <%= cliente.empresa %></div>
+                <div class="info-linha"><strong>Desafio:</strong> <span class="tag-desafio" style="margin-top: 0;"><%= cliente.desafio %></span></div>
+            </div>
+
+            <form action="/admin/responder/<%= cliente.id %>" method="post" class="dashboard-box" style="margin-top: 0;">
                 <div class="texto-box">
                     <label for="resposta">Seu Diagnóstico Profissional</label>
                     <textarea id="resposta" name="resposta" rows="6" placeholder="Escreva aqui a solução recomendada..." required></textarea>

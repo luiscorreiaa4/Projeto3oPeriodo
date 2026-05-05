@@ -28,7 +28,7 @@
                     </div>
 
                     <div class="info-linha"><strong>Empresa:</strong> <%= usuarioLogado.empresa %></div>
-                    <div class="info-linha"><strong>Desafio Registrado:</strong> <%= usuarioLogado.desafio %></div>
+                    <div class="info-linha"><strong>Desafio Registrado:</strong> <span class="tag-desafio" style="margin-top: 0;"><%= usuarioLogado.desafio %></span></div>
 
                     <% if (usuarioLogado.status === 'Respondido') { %>
                         <div class="resposta-box">

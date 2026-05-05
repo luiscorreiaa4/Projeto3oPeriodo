@@ -3,7 +3,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #011E48;
+    background: radial-gradient(ellipse at top, rgba(2, 38, 90, 0.6), var(--bg-primary));
     min-height: 100vh;
 }
 
@@ -12,7 +12,7 @@
 }
 
 .container-lettering {
-    max-width: 500px; 
+    max-width: 600px; 
     width: 100%;
     text-align: center;
 }
@@ -21,26 +21,38 @@
     word-spacing: -0.15em;
     font-size: 2.4rem;
     margin-top: 23px;
-    color: #F1F5F9;
+    color: var(--text-primary);
     line-height: 1.2;
+    font-weight: 800;
 }
 
 .contato-section p {
-    color: #CBD5E1;
+    color: var(--text-secondary);
     font-size: 1.125rem;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .contato-box {
-    background: #02265a;
+    background: var(--glass-bg);
     padding: 40px;
-    border-radius: 16px;
-    box-shadow: 0 0px 50px #ffffff33;
-    border: 1px solid #1E3A8A;
+    border-radius: var(--border-radius);
+    box-shadow: var(--glass-shadow);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 20px;
+}
+
+.full-width {
+    grid-column: 1 / -1;
 }
 
 .dica-senha {
-    color: #CBD5E1;
+    color: var(--text-secondary);
     font-size: 0.8rem;
     display: block;
     margin-top: 5px;
@@ -53,13 +65,13 @@
 }
 
 .box-link-login p {
-    color: #CBD5E1;
+    color: var(--text-secondary);
     font-size: 0.95rem;
     margin-bottom: 0;
 }
 
 .box-link-login a {
-    color: #7DD3FC;
+    color: var(--accent-cyan);
     font-weight: bold;
     text-decoration: underline;
 }
@@ -67,4 +79,5 @@
 @media (max-width: 768px){
     .contato-section h2 { font-size: 1.8rem; }
     .contato-box { padding: 25px 20px; margin: 0 10px; }
+    .form-grid { grid-template-columns: 1fr; }
 }
