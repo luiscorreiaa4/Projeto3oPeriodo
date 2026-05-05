@@ -12,7 +12,7 @@
 }
 
 .container-lettering {
-    max-width: 600px; 
+    max-width: 680px; 
     width: 100%;
     text-align: center;
 }
@@ -24,6 +24,7 @@
     color: var(--text-primary);
     line-height: 1.2;
     font-weight: 800;
+    letter-spacing: -0.5px;
 }
 
 .contato-section p {
@@ -34,21 +35,18 @@
 
 .contato-box {
     background: var(--glass-bg);
-    padding: 40px;
+    padding: 48px;
+    max-width: 560px;
+    margin: 0 auto;
     border-radius: var(--border-radius);
-    box-shadow: var(--glass-shadow);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--glass-border);
     border: 1px solid var(--glass-border);
     backdrop-filter: blur(20px);
 }
 
 .form-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0 20px;
-}
-
-.full-width {
-    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
 }
 
 .dica-senha {
@@ -74,10 +72,15 @@
     color: var(--accent-cyan);
     font-weight: bold;
     text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.box-link-login a:hover {
+    color: var(--accent-cyan-hover);
+    text-decoration: none;
 }
 
 @media (max-width: 768px){
     .contato-section h2 { font-size: 1.8rem; }
-    .contato-box { padding: 25px 20px; margin: 0 10px; }
-    .form-grid { grid-template-columns: 1fr; }
+    .contato-box { padding: 28px 20px; margin: 0 10px; max-width: 100%; }
 }

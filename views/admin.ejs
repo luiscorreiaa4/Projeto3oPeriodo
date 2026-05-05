@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel Administrador - Nexus Inc.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
@@ -24,15 +27,16 @@
                     <% clientes.forEach(function(cliente) { %>
                         
                         <div class="card-cliente">
-                            <h3><%= cliente.empresa %></h3>
-                            <div class="info-linha"><strong>E-mail:</strong> <%= cliente.email %></div>
-                            <div class="info-linha"><strong>Celular:</strong> <%= cliente.celular %></div>
-                            <div class="info-linha"><strong>Data:</strong> <%= cliente.data %></div>
-                            <div class="info-linha">
-                                <strong>Status:</strong>
-                                <span class="status-badge <%= cliente.status === 'Respondido' ? 'texto-status-respondido' : 'texto-status-pendente' %>">
-                                <%= cliente.status%>
+                            <div class="card-cliente-header">
+                                <h3><%= cliente.empresa %></h3>
+                                <span class="status-badge <%= cliente.status === 'Respondido' ? 'status-respondido' : 'status-pendente' %>">
+                                    <%= cliente.status%>
                                 </span>
+                            </div>
+                            <div class="card-cliente-body">
+                                <div class="info-linha"><strong>E-mail:</strong> <%= cliente.email %></div>
+                                <div class="info-linha"><strong>Celular:</strong> <%= cliente.celular %></div>
+                                <div class="info-linha"><strong>Data:</strong> <%= cliente.data %></div>
                             </div>
                             <span class="tag-desafio"><%= cliente.desafio %></span>
                             <a href="/admin/responder/<%= cliente.id %>" class="botao-solicitar botao-admin-card">
