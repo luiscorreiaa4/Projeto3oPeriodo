@@ -1,5 +1,5 @@
 .contato-section {
-    padding: 120px 20px 80px; 
+    padding: calc(var(--nav-height) + 48px) 20px 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -81,6 +81,8 @@
 }
 
 @media (max-width: 768px){
+    /* --nav-height ja atualizado para 108px no style.css */
+    .contato-section { padding: calc(var(--nav-height) + 32px) 16px 60px; }
     .contato-section h2 { font-size: 1.8rem; }
     .contato-box { padding: 28px 20px; margin: 0 10px; max-width: 100%; }
 }

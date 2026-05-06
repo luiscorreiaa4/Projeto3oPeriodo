@@ -242,13 +242,19 @@ input:-webkit-autofill, input:-webkit-autofill:hover, input:-webkit-autofill:foc
 }
 
 @media (max-width: 768px){
-    nav { height: auto; padding: 12px 0; }
-    nav .nav-container { padding: 0 20px; flex-direction: column; gap: 12px; align-items: center; }
-    nav ul { margin-top: 8px; gap: 0; }
+    /* Redefine a altura do nav para sincronizar com todos os padding-top das secoes */
+    :root { --nav-height: 108px; }
+    nav { height: auto; padding: 10px 0; }
+    nav .nav-container { padding: 0 20px; flex-direction: column; gap: 8px; align-items: center; }
+    nav ul { margin-top: 4px; gap: 0; }
     nav ul li a { font-size: 0.9rem; padding: 6px 10px; }
-    .logonexus { height: 52px !important; }
+    .logonexus { height: 44px !important; }
     .botao-consultor, .botao-solicitar { text-align: center; padding: 14px; }
 }
-@media (max-width: 400px) {
-    nav ul li a { font-size: 0.85rem; }
+@media (max-width: 430px) {
+    /* Telas menores: nav fica ainda mais compacto, reajustamos a variavel */
+    :root { --nav-height: 104px; }
+    nav { padding: 8px 0; }
+    nav ul li a { font-size: 0.82rem; padding: 5px 8px; }
+    .logonexus { height: 38px !important; }
 }

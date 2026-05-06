@@ -1,5 +1,5 @@
 ---
-trigger: manual
+trigger: always_on
 ---
 
 O projeto "Nexus Inc" utiliza Node.js com views em EJS e validações front-end em Vanilla JS. Ao refatorar a UI/UX, você DEVE seguir estas regras inquebráveis:

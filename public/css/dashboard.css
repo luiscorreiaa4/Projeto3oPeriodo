@@ -1,5 +1,5 @@
 .dashboard-section {
-    padding: 100px 24px 80px;
+    padding: calc(var(--nav-height) + 28px) 24px 80px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -215,7 +215,8 @@
 }
 
 @media (max-width: 768px){
-    .dashboard-section { padding: 90px 16px 60px; }
+    /* --nav-height ja foi redefinido para 108px no style.css, entao o calc() atualiza automaticamente */
+    .dashboard-section { padding: calc(var(--nav-height) + 20px) 16px 60px; }
     .dashboard-box { padding: 20px 16px; }
     .dashboard-header { flex-direction: column; align-items: flex-start; gap: 10px; }
     .grid-clientes { grid-template-columns: 1fr; }
