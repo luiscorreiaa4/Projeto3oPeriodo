@@ -24,7 +24,11 @@
                     <h1>Sua empresa com <br><span class="destaque">Tecnologia Inteligente</span></h1>
                     <p>Traduzimos a complexidade digital em resultados reais. Consultoria estratégica para otimizar processos, reduzir custos e acelerar seu crescimento.</p>
                     <div class="botao-primario">
-                        <a href="/cadastro" class="botao-consultor">Falar com um Consultor</a>
+                        <% if (typeof usuarioLogado !== 'undefined' && usuarioLogado) { %>
+                            <a href="<%= usuarioLogado.is_admin ? '/admin' : '/dashboard' %>" class="botao-consultor">Ir para o meu Painel</a>
+                        <% } else { %>
+                            <a href="/cadastro" class="botao-consultor">Falar com um Consultor</a>
+                        <% } %>
                     </div>
                 </div>
                 <div class="hero-visual">

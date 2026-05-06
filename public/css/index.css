@@ -52,6 +52,7 @@
 .destaque {
     background: linear-gradient(135deg, var(--accent-cyan), #3b82f6);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 

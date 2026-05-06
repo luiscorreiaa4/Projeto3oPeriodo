@@ -26,21 +26,30 @@ app.use((req, res, next) => {
     next();
 });
 
-app.get('/', (req, res) => res.render('index'));
-app.get('/cadastro', (req, res) => res.render('cadastro'));
-app.get('/login', (req, res) => res.render('login'));
+app.get('/', (req, res) => {
+    if (req.session.usuario) return res.redirect(req.session.usuario.is_admin ? '/admin' : '/dashboard');
+    res.render('index');
+});
+app.get('/cadastro', (req, res) => {
+    if (req.session.usuario) return res.redirect(req.session.usuario.is_admin ? '/admin' : '/dashboard');
+    res.render('cadastro');
+});
+app.get('/login', (req, res) => {
+    if (req.session.usuario) return res.redirect(req.session.usuario.is_admin ? '/admin' : '/dashboard');
+    res.render('login');
+});
 
 //DASHBOARD (CLIENTE)
 app.get('/dashboard', (req, res) => {
     if (!req.session.usuario) return res.redirect('/login');
+    if (req.session.usuario.is_admin) return res.redirect('/admin');
     res.render('dashboard', { usuarioLogado: req.session.usuario });
 });
 
 //ADMIN (BUSCA NO BANCO)
 app.get('/admin', async (req, res) => {
-    if (!req.session.usuario || !req.session.usuario.is_admin) {
-        return res.redirect('/login');
-    }
+    if (!req.session.usuario) return res.redirect('/login');
+    if (!req.session.usuario.is_admin) return res.redirect('/dashboard');
 
     try {
         const query = `
@@ -59,7 +68,8 @@ app.get('/admin', async (req, res) => {
 });
 
 app.get('/admin/responder/:id', async (req, res) => {
-    if (!req.session.usuario || !req.session.usuario.is_admin) return res.redirect('/login');
+    if (!req.session.usuario) return res.redirect('/login');
+    if (!req.session.usuario.is_admin) return res.redirect('/dashboard');
     
     const { id } = req.params;
     const resultado = await db.query('SELECT * FROM usuarios WHERE id = $1', [id]);
@@ -67,7 +77,8 @@ app.get('/admin/responder/:id', async (req, res) => {
 });
 
 app.post('/admin/responder/:id', async (req, res) => {
-    if (!req.session.usuario || !req.session.usuario.is_admin) return res.redirect('/login');
+    if (!req.session.usuario) return res.redirect('/login');
+    if (!req.session.usuario.is_admin) return res.redirect('/dashboard');
 
     const { id } = req.params;
     const { resposta } = req.body;
