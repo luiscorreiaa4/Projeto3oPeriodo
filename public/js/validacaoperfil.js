@@ -6,7 +6,13 @@ const erros = {};
 
 campos.forEach(campo => {
     elementos[campo] = document.getElementById(campo);
-    erros[campo] = document.getElementById(`erro-${campo}`);
+    if (campo === 'senha') {
+        erros[campo] = document.getElementById('erro-padrao-senha');
+    } else if (campo === 'confirma_senha') {
+        erros[campo] = document.getElementById('erro-confirma-senha');
+    } else {
+        erros[campo] = document.getElementById(`erro-${campo}`);
+    }
 });
 
 const toggleErro = (el, err, temErro) => {
@@ -48,6 +54,24 @@ celular.addEventListener('input', (e) => {
     }
 });
 
+// VALIDAÇÃO DE SENHA EM TEMPO REAL
+const checarSenhasIguais = () => {
+    if (elementos.confirma_senha.value !== '' || elementos.senha.value !== '') {
+        const saoDiferentes = elementos.senha.value !== elementos.confirma_senha.value;
+        toggleErro(elementos.confirma_senha, erros.confirma_senha, saoDiferentes);
+    } else {
+        toggleErro(elementos.confirma_senha, erros.confirma_senha, false);
+    }
+};
+
+elementos.senha.addEventListener('blur', () => {
+    const isInvalid = elementos.senha.value !== '' && !elementos.senha.checkValidity();
+    toggleErro(elementos.senha, erros.senha, isInvalid);
+    checarSenhasIguais();
+});
+
+elementos.confirma_senha.addEventListener('input', checarSenhasIguais);
+
 form.addEventListener('submit', (e) => {
     let temErroGeral = false;
 
@@ -57,9 +81,13 @@ form.addEventListener('submit', (e) => {
     
     let checkSenha = false;
     let checkConfirma = false;
-    if (elementos.senha.value.length > 0) {
-        checkSenha = !elementos.senha.checkValidity();
-        checkConfirma = elementos.senha.value !== elementos.confirma_senha.value;
+    
+    const senhaVal = elementos.senha.value;
+    const confirmaVal = elementos.confirma_senha.value;
+
+    if (senhaVal !== '' || confirmaVal !== '') {
+        checkSenha = !elementos.senha.checkValidity() || senhaVal === '';
+        checkConfirma = senhaVal !== confirmaVal;
     }
 
     toggleErro(elementos.empresa, erros.empresa, checkEmpresa);

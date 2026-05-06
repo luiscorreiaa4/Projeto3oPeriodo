@@ -56,14 +56,16 @@
                         </div>
 
                         <div class="texto-box">
-                            <label for="senha">Nova Senha (deixe em branco)</label>
-                            <input type="password" id="senha" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Mín. 8 caracteres, 1 maiúscula e 1 número">
-                            <span id="erro-padrao-senha" class="mensagem-erro">Senha muito fraca.</span>
+                            <label for="senha">Nova Senha</label>
+                            <input type="password" autocomplete="new-password" id="senha" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" placeholder="Crie uma nova senha forte">
+                            <small class="dica-senha">Mín. 8 caracteres, 1 maiúscula e 1 número.</small>
+                            <small class="dica-senha">Deixe em branco para manter a senha atual.</small>
+                            <span id="erro-padrao-senha" class="mensagem-erro">A senha digitada está muito fraca. Siga as regras acima.</span>
                         </div>
 
                         <div class="texto-box">
                             <label for="confirma_senha">Confirme a Nova Senha</label>
-                            <input type="password" id="confirma_senha" name="confirma_senha">
+                            <input type="password" autocomplete="new-password" id="confirma_senha" name="confirma_senha" placeholder="Digite a nova senha novamente">
                             <span id="erro-confirma-senha" class="mensagem-erro">As senhas não coincidem.</span>
                         </div>
                     </div>

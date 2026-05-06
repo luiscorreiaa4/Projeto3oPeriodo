@@ -74,6 +74,11 @@
     100% { background-position: 200% center; }
 }
 
+@keyframes fillBar {
+    from { width: 0%; }
+    to   { width: var(--bar-target, 87%); }
+}
+
 .mock-dashboard {
     width: 100%;
     height: 420px;
@@ -96,29 +101,139 @@
 
 .mock-header {
     height: 36px;
-    background: linear-gradient(90deg, rgba(125, 211, 252, 0.08) 0%, rgba(125, 211, 252, 0.15) 50%, rgba(125, 211, 252, 0.08) 100%);
-    background-size: 200% auto;
-    animation: shimmer 3s linear infinite;
+    background: rgba(1, 30, 72, 0.7);
     border-radius: 8px;
     width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 12px;
+    flex-shrink: 0;
+}
+
+.mock-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(125, 211, 252, 0.25);
+    display: inline-block;
+    flex-shrink: 0;
+}
+.mock-dot:first-child  { background: rgba(239, 68,  68,  0.55); }
+.mock-dot:nth-child(2) { background: rgba(251, 191, 36,  0.55); }
+.mock-dot:nth-child(3) { background: rgba(34,  197, 94,  0.55); }
+
+.mock-title {
+    margin-left: auto;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: rgba(125, 211, 252, 0.5);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    white-space: nowrap;
 }
 
 .mock-body {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 12px;
+    overflow: hidden;
 }
 
-.mock-bar-1, .mock-bar-2, .mock-bar-3 {
-    height: 58px;
-    background: linear-gradient(135deg, rgba(125, 211, 252, 0.07) 0%, rgba(59, 130, 246, 0.12) 100%);
+/* ── Diagnostic Cards ─────────────────────────────── */
+.diag-card {
+    background: rgba(1, 30, 72, 0.5);
+    border: 1px solid rgba(125, 211, 252, 0.08);
     border-radius: 10px;
-    border: 1px solid rgba(125, 211, 252, 0.06);
-    width: 100%;
+    padding: 12px 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.3s ease;
 }
-.mock-bar-2 { width: 78%; opacity: 0.8; }
-.mock-bar-3 { width: 88%; opacity: 0.9; }
+.diag-card:hover {
+    border-color: rgba(125, 211, 252, 0.2);
+}
+.diag-card--alert {
+    border-color: rgba(251, 191, 36, 0.2);
+    background: rgba(251, 191, 36, 0.04);
+}
+.diag-card--alert:hover {
+    border-color: rgba(251, 191, 36, 0.4);
+}
+
+.diag-card-top {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.diag-icon {
+    font-size: 1rem;
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+.diag-label {
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    flex: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.diag-score {
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+}
+.diag-score--green { color: #4ade80; }
+.diag-score--cyan  { color: var(--accent-cyan); }
+
+.diag-sub {
+    font-size: 0.72rem;
+    color: var(--text-secondary);
+    margin: 0;
+    padding-left: 26px;
+    opacity: 0.8;
+}
+
+/* ── Progress Bar ─────────────────────────────────── */
+.diag-bar-track {
+    height: 6px;
+    background: rgba(125, 211, 252, 0.08);
+    border-radius: 99px;
+    overflow: hidden;
+}
+.diag-bar-fill {
+    height: 100%;
+    border-radius: 99px;
+    background: linear-gradient(90deg, #4ade80, #22c55e);
+    animation: fillBar 1.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    animation-delay: 0.4s;
+    width: 0%;
+}
+.diag-bar--87 { --bar-target: 87%; }
+
+/* ── Status Pills ─────────────────────────────────── */
+.diag-pill {
+    font-size: 0.68rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 99px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    flex-shrink: 0;
+}
+.diag-pill--warn {
+    background: rgba(251, 191, 36, 0.12);
+    color: #fbbf24;
+    border: 1px solid rgba(251, 191, 36, 0.3);
+}
 
 @media (max-width: 992px){
     .hero-container { grid-template-columns: 1fr; text-align: center; }

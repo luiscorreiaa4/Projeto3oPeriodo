@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nexus Inc. | Tecnologia para Negócios</title>
-    <meta name="description" content="Consultoria estratégica de tecnologia para transformar a complexidade digital em resultados reais para o seu negócio.">
+    <meta name="description"
+        content="Consultoria estratégica de tecnologia para transformar a complexidade digital em resultados reais para o seu negócio.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -12,40 +14,72 @@
     <link rel="stylesheet" href="/css/index.css">
     <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
 </head>
+
 <body>
-    
+
     <%- include('partials/nav') %>
 
-    <main>
-        <section id="home" class="lettering">
-            <div class="hero-container">
-                <div class="lettering-content">
-                    <div class="hero-badge">🚀 Inovação Estratégica</div>
-                    <h1>Sua empresa com <br><span class="destaque">Tecnologia Inteligente</span></h1>
-                    <p>Traduzimos a complexidade digital em resultados reais. Consultoria estratégica para otimizar processos, reduzir custos e acelerar seu crescimento.</p>
-                    <div class="botao-primario">
-                        <% if (typeof usuarioLogado !== 'undefined' && usuarioLogado) { %>
-                            <a href="<%= usuarioLogado.is_admin ? '/admin' : '/dashboard' %>" class="botao-consultor">Ir para o meu Painel</a>
-                        <% } else { %>
-                            <a href="/cadastro" class="botao-consultor">Falar com um Consultor</a>
-                        <% } %>
+        <main>
+            <section id="home" class="lettering">
+                <div class="hero-container">
+                    <div class="lettering-content">
+                        <div class="hero-badge">🚀 Inovação Estratégica</div>
+                        <h1>Sua empresa com <br><span class="destaque">Tecnologia Inteligente</span></h1>
+                        <p>Traduzimos a complexidade digital em resultados reais. Consultoria estratégica para otimizar
+                            processos, reduzir custos e acelerar seu crescimento.</p>
+                        <div class="botao-primario">
+                            <% if (typeof usuarioLogado !=='undefined' && usuarioLogado) { %>
+                                <a href="<%= usuarioLogado.is_admin ? '/admin' : '/dashboard' %>"
+                                    class="botao-consultor">Ir para o meu Painel</a>
+                                <% } else { %>
+                                    <a href="/cadastro" class="botao-consultor">Falar com um Consultor</a>
+                                    <% } %>
+                        </div>
                     </div>
-                </div>
-                <div class="hero-visual">
-                    <div class="glass-card mock-dashboard">
-                        <div class="mock-header"></div>
-                        <div class="mock-body">
-                            <div class="mock-bar-1"></div>
-                            <div class="mock-bar-2"></div>
-                            <div class="mock-bar-3"></div>
+                    <div class="hero-visual">
+                        <div class="glass-card mock-dashboard">
+                            <div class="mock-header">
+                                <span class="mock-dot"></span>
+                                <span class="mock-dot"></span>
+                                <span class="mock-dot"></span>
+                                <span class="mock-title">Diagnóstico Nexus Inc.</span>
+                            </div>
+                            <div class="mock-body">
+                                <div class="diag-card">
+                                    <div class="diag-card-top">
+                                        <span class="diag-icon">⚙️</span>
+                                        <span class="diag-label">Automação de Processos</span>
+                                        <span class="diag-score diag-score--green">87%</span>
+                                    </div>
+                                    <div class="diag-bar-track">
+                                        <div class="diag-bar-fill diag-bar--87"></div>
+                                    </div>
+                                </div>
+                                <div class="diag-card">
+                                    <div class="diag-card-top">
+                                        <span class="diag-icon">💰</span>
+                                        <span class="diag-label">Redução de Custos</span>
+                                        <span class="diag-score diag-score--cyan">-34%</span>
+                                    </div>
+                                    <p class="diag-sub">▼ Economia operacional identificada</p>
+                                </div>
+                                <div class="diag-card diag-card--alert">
+                                    <div class="diag-card-top">
+                                        <span class="diag-icon">🔒</span>
+                                        <span class="diag-label">Conformidade LGPD</span>
+                                        <span class="diag-pill diag-pill--warn">⚠ Pendente</span>
+                                    </div>
+                                    <p class="diag-sub">3 pontos críticos detectados</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <%- include('partials/footer') %>
+        <%- include('partials/footer') %>
 
 </body>
+
 </html>
